@@ -4,6 +4,8 @@ import MainLayout from "../MainLayout/MainLayout";
 import Login from "../Components/Login";
 import Register from "../Components/Register";
 import DashLayout from "../Components/Dashboard/DashLayout";
+import MyHouse from "../Components/Dashboard/MyHouse";
+import AddHouse from "../Components/Dashboard/AddHouse";
 
 const Router = createBrowserRouter([
   {
@@ -29,7 +31,12 @@ const Router = createBrowserRouter([
     element:<DashLayout/>,
     children: [
       {
-        path: ''
+        path: '/dashboard/myHouse',
+        element:<MyHouse/>
+      },
+      {
+        path: '/dashboard/addHouse',
+        element:<AddHouse/>
       }
     ]
   }

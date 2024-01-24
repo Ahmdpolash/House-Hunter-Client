@@ -10,6 +10,7 @@ const House = () => {
   const [styles, setStyles] = useState("grid");
   const [search, setSearch] = useState("");
 
+
   const axiosPublic = useAxiosPublic();
 
   const { data } = useQuery({
@@ -39,7 +40,7 @@ const House = () => {
             <div className="flex  items-center gap-2">
               <div>
                 <label className="container">
-                  <input type="checkbox" />
+                  <input value='Dhaka' onClick={(e) => setCity(e.target.value)} type="checkbox" />
                   <svg className="w-4 h-4" viewBox="0 0 64 64">
                     <path
                       d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
@@ -55,7 +56,7 @@ const House = () => {
             <div className="flex  items-center gap-2">
               <div>
                 <label className="container">
-                  <input type="checkbox" />
+                  <input value='Rangpur' onClick={(e) => setCity(e.target.value)} type="checkbox" />
                   <svg className="w-4 h-4" viewBox="0 0 64 64">
                     <path
                       d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
@@ -71,7 +72,7 @@ const House = () => {
             <div className="flex  items-center gap-2">
               <div>
                 <label className="container">
-                  <input type="checkbox" />
+                  <input value='Khulna' onClick={(e) => setCity(e.target.value)} type="checkbox" />
                   <svg className="w-4 h-4" viewBox="0 0 64 64">
                     <path
                       d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
@@ -87,7 +88,7 @@ const House = () => {
             <div className="flex  items-center gap-2">
               <div>
                 <label className="container">
-                  <input type="checkbox" />
+                  <input value='Sylhet' onClick={(e) => setCity(e.target.value)} type="checkbox" />
                   <svg className="w-4 h-4" viewBox="0 0 64 64">
                     <path
                       d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
@@ -103,7 +104,7 @@ const House = () => {
             <div className="flex  items-center gap-2">
               <div>
                 <label className="container">
-                  <input type="checkbox" />
+                  <input value='Barishal' onClick={(e) => setCity(e.target.value)} type="checkbox" />
                   <svg className="w-4 h-4" viewBox="0 0 64 64">
                     <path
                       d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
@@ -119,7 +120,7 @@ const House = () => {
             <div className="flex  items-center gap-2">
               <div>
                 <label className="container">
-                  <input type="checkbox" />
+                  <input value='Rajsahi' onClick={(e) => setCity(e.target.value)} type="checkbox" />
                   <svg className="w-4 h-4" viewBox="0 0 64 64">
                     <path
                       d="M 0 16 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 16 L 32 48 L 64 16 V 8 A 8 8 90 0 0 56 0 H 8 A 8 8 90 0 0 0 8 V 56 A 8 8 90 0 0 8 64 H 56 A 8 8 90 0 0 64 56 V 16"
@@ -238,7 +239,9 @@ const House = () => {
 
           <div className="">
             {filteredData?.length === 0 ? (
-              <p className="h-[40vh] flex justify-center items-center">No houses available for the specified search criteria...</p>
+              <p className="h-[40vh] flex justify-center items-center">
+                No houses available for the specified search criteria...
+              </p>
             ) : (
               <div
                 className={`grid  w-full ${
